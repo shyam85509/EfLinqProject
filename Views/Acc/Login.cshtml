@@ -1,0 +1,71 @@
+﻿@model LoginModel;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>
+        Login Page
+    </title>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #ebc9bb6b;
+            text-align:center;
+        }
+
+        .cont{
+            width:40%;
+            margin-top: 10%;
+            margin-left: 35%;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <div class="cont">
+
+            
+            @using (Html.BeginForm())
+            {
+
+
+                <div class="row gy-2 overflow-hidden">
+                <label class="text-danger">
+                    @ViewBag.Massage
+                </label>
+                    <div class="col-8">
+                        <div class="form-floating mb-3">
+                            @Html.TextBoxFor(model => model.Email, new{@class="form-control"})
+                            <label for="email" class="form-label">Email</label>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="form-floating mb-3">
+                            @Html.TextBoxFor(model => model.Password, new{@class="form-control"})
+                            <label for="password" class="form-label">Password</label>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="d-grid">
+                            <button class="btn btn-info btn-lg" type="submit">Log in now</button>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="row">
+                <div class="col-6">
+                    <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-center mt-5">
+                        @Html.ActionLink("Create New Acc", "Register","Acc", new{@class="text-info"})
+                    </div>
+                </div>
+            </div>
+        </>
+    </div>
+    
+
+</body>
+</html>

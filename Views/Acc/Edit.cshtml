@@ -1,0 +1,146 @@
+﻿@model RegisterModel;
+@{
+
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+    <style>
+        .card-registration .select-input.form-control[readonly]:not([disabled]) {
+            font-size: 1rem;
+            line-height: 2.15;
+            padding-left: .75em;
+            padding-right: .75em;
+        }
+
+        .card-registration .select-arrow {
+            top: 23px;
+        }
+
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <section class="h-100 bg-info">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col">
+                    <div class="card card-registration my-4">
+                        <div class="row g-0">
+                            <div class="col-xl-4 d-none d-xl-block">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                                     alt="Sample photo" class="img-fluid"
+                                     style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+
+                            </div>
+
+                                <div class="col-xl-8 d-none d-xl-block ">
+                                    @using (Html.BeginForm())
+                                    {
+                                    @Html.AntiForgeryToken()
+
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                @Html.TextBoxFor(model => model.Rollno, new{@class="form-control form-control-lg"})
+                                                @Html.LabelFor(model => model.Rollno, new{@class="form-label"})
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                @Html.TextBoxFor(model => model.Name, new{@class="form-control form-control-lg"})
+                                                @Html.LabelFor(model => model.Name, new{@class="form-label"})
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                @Html.TextBoxFor(model => model.Email, new{@class="form-control form-control-lg"})
+                                                @Html.LabelFor(model => model.Email, new{@class="form-label"})
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                @Html.TextBoxFor(model => model.Password, new{@class="form-control form-control-lg"})
+                                                @Html.LabelFor(model => model.Password, new{@class="form-label"})
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                @Html.EditorFor(model => model.DOB, new{@class="form-control form-control-lg"})
+                                                @Html.LabelFor(model => model.DOB, new{@class="form-label"})
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                @Html.TextBoxFor(model => model.Mobile, new{@class="form-control form-control-lg"})
+                                                @Html.LabelFor(model => model.Mobile, new{@class="form-label"})
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                @Html.RadioButtonFor(model => model.Gender, "Male", new{id="Male-true"})
+                                                @Html.Label("Male-true", "Male")
+                                                @Html.RadioButtonFor(model => model.Gender, "Female", new{id="Female-true"})
+                                                @Html.Label("Female-true", "Female")
+                                                @Html.LabelFor(model => model.Gender, new{@class="form-label"})
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                @Html.TextBoxFor(model => model.Fee, new{@class="form-control form-control-lg"})
+                                                @Html.LabelFor(model => model.Fee, new{@class="form-label"})
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                @Html.DropDownListFor(model => model.Dept, new List<SelectListItem>{
+                                                    new SelectListItem{Value="", Text="--Select--"},
+                                                    new SelectListItem{Value="CSE", Text="CSE"},
+                                                    new SelectListItem{Value="IT", Text="IT"}
+                                                }, new{@class="form-control"})
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                @Html.DropDownListFor(model => model.Status, new List<SelectListItem>{
+                                                    new SelectListItem{Value="True", Text="True"},
+                                                    new SelectListItem{Value="False", Text="False"}
+                                                })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                        <button type="submit" class="btn btn-primary btn-lg">Update</button>
+
+                                    </div>
+                                }
+                                </div>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

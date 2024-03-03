@@ -1,0 +1,49 @@
+﻿@model IEnumerable<efcorePro.Models.RegisterModel>
+@{
+    ViewData["Title"] = "DisplayData";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<table class="table table-bordered">
+    <thead>
+        <tr class="">
+            <th>ID</th>
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Date Of Birth</th>
+            <th>Mobile</th>
+            <th>Gender</th>
+            <th>Fee</th>
+            <th>Dept</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="">
+                <td>@item.Id</td>
+                <td>@item.Rollno</td>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td>@item.Password</td>
+                <td>@item.DOB</td>
+                <td>@item.Mobile</td>
+                <td>@item.Gender</td>
+                <td>@item.Fee</td>
+                <td>@item.Dept</td>
+                <td>@item.Status</td>
+                <td>
+                    @Html.ActionLink("View","Views","Acc", new{id=item.Id})
+                    | @Html.ActionLink("Edit","Edit","Acc", new{id=item.Id})
+                    | @Html.ActionLink("Delete","Delete","Acc", new{id = item.Id}, new{onClick="return confirm('Are you realy want to delete....?')"})
+
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

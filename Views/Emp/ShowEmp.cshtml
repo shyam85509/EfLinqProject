@@ -1,0 +1,32 @@
+﻿@model IEnumerable<efcorePro.Models.EmployeeModel>
+@{
+    ViewData["Title"] = "ShowEmp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr class="">
+            <th>Emp ID</th>
+            <th>Emp Name</th>
+            <th>Emp Email</th>
+            <th>Emp Password</th>
+            <th>Date Of Birth</th>
+            <th>Emp Sallary</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="">
+                <td>@item.Eid</td>
+                <td>@item.Ename</td>
+                <td>@item.EmailId</td>
+                <td>@item.Password</td>
+                <td>@item.dob</td>
+                <td>@item.Salary</td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
